@@ -23,7 +23,17 @@ public class DataManager implements IDataManager {
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+    private static DataManager dataManager;
 
+
+    public static DataManager getInstance(){
+        if (dataManager != null){
+            return dataManager;
+        }else{
+            dataManager = new DataManager();
+            return dataManager;
+        }
+    }
 
     /*
     Only presenter can work with the error. Don't handle errors here.

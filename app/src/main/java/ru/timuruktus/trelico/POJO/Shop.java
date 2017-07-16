@@ -15,12 +15,11 @@ public class Shop extends RealmObject {
     }
 
     public Shop(RealmList<ShopGeoPoint> coordinates, String name, String objectId, String imageUrl,
-                String imagePath, String description, String type) {
+                String description, String type) {
         this.coordinates = coordinates;
         this.name = name;
         this.objectId = objectId;
         this.imageUrl = imageUrl;
-        this.imagePath = imagePath;
         this.description = description;
         this.type = type;
     }
@@ -58,14 +57,6 @@ public class Shop extends RealmObject {
         this.imageUrl = imageUrl;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -92,7 +83,6 @@ public class Shop extends RealmObject {
     private String description;
     @Required
     private String imageUrl;
-    private String imagePath;
     private String type;
 
 

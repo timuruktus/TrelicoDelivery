@@ -17,13 +17,13 @@ import ru.timuruktus.trelico.R;
 
 import static ru.timuruktus.trelico.REST.BackendlessAPI.IMAGES_URL;
 
-public class ShopAdapter extends BaseAdapter {
+public class ShopsAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater lInflater;
     private ArrayList<Shop> shops;
 
-    ShopAdapter(Context context, ArrayList<Shop> shops) {
+    ShopsAdapter(Context context, ArrayList<Shop> shops) {
         this.context = context;
         this.shops = shops;
         lInflater = (LayoutInflater) this.context
@@ -57,8 +57,8 @@ public class ShopAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.shopName)).setText(shop.getName());
         ((TextView) view.findViewById(R.id.numOfShops)).setText(shop.getCoordinates().size());
         ((TextView) view.findViewById(R.id.shopType)).setText(shop.getType());
-//        ((ImageView) view.findViewById(R.id.ivImage)).setImageResource(shop.image);
-        Picasso.with(context).load(IMAGES_URL + shop.getImageUrl());
+        ImageView shopPreview = (ImageView) view.findViewById(R.id.shopPreview);
+        Picasso.with(context).load(IMAGES_URL + shop.getImageUrl()).centerCrop().into(shopPreview);
         return view;
     }
 
