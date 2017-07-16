@@ -3,6 +3,7 @@ package ru.timuruktus.trelico.MainPart;
 import android.content.Context;
 
 
+import ru.timuruktus.trelico.Model.DataManager;
 import ru.timuruktus.trelico.R;
 import ru.timuruktus.trelico.Utils.FragmentChanger;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -33,5 +34,6 @@ public class MainPresenter implements IMainPresenter {
                 .build()
         );
     }
+
 
 }

@@ -7,6 +7,6 @@ import rx.Observable;
 
 public interface IDataManager {
 
-    void setupRetrofit();
-    Observable<List<Shop>> loadShops();
+    Observable<Shop> loadShopsFromWeb();
+    Observable<Shop> loadShopsFromCache();
 }

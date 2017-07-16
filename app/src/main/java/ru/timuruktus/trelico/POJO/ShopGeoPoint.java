@@ -7,6 +7,17 @@ import io.realm.annotations.Required;
 public class ShopGeoPoint extends RealmObject {
 
 
+    public ShopGeoPoint(double lat, double lng, String street, String objectId) {
+        this.lat = lat;
+        this.lng = lng;
+        this.street = street;
+        this.objectId = objectId;
+    }
+
+
+    public ShopGeoPoint() {
+    }
+
     public double getLat() {
         return lat;
     }
@@ -31,20 +42,20 @@ public class ShopGeoPoint extends RealmObject {
         this.objectId = objectId;
     }
 
-    @Required
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     private double lat;
-    @Required
     private double lng;
+    @Required
+    private String street;
     @PrimaryKey
     private String objectId;
 
 
-    public ShopGeoPoint(double lat, double lng, String objectId) {
-        this.lat = lat;
-        this.lng = lng;
-        this.objectId = objectId;
-    }
-
-    public ShopGeoPoint() {
-    }
 }

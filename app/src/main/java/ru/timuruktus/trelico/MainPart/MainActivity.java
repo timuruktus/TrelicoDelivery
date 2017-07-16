@@ -9,14 +9,15 @@ import ru.timuruktus.trelico.R;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity {
 
-    private IMainPresenter mainPresenter;
+    public static final String DEFAULT_TAG = "mytag";
+    public static final String TESTING_TAG = "mytag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        mainPresenter = new MainPresenter(this);
+        IMainPresenter mainPresenter = new MainPresenter(this);
         mainPresenter.onCreate();
     }
 
