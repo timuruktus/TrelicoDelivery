@@ -9,5 +9,7 @@ public interface IShopsFragment {
 
     void showShops(List<Shop> shops);
     void showProgressIndicator(boolean show);
-    void showError();
+    void showError(boolean show);
+    void showMessageNoInternetConnection();
+
 }

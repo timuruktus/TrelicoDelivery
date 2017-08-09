@@ -26,7 +26,7 @@ public class Shop extends RealmObject {
 
 
     public RealmList<ShopGeoPoint> getCoordinates() {
-        return coordinates;
+        return  coordinates;
     }
 
     public void setCoordinates(RealmList<ShopGeoPoint> coordinates) {

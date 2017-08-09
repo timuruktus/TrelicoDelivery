@@ -7,15 +7,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="225dp"
+        android:layout_height="wrap_content"
         android:layout_margin="7dp"
-        android:background="@color/colorDark"
+        android:background="@drawable/shop_closed_background"
         android:elevation="4dp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150dp">
 
             <TextView
                 android:id="@+id/shopName"
@@ -27,16 +27,16 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:elevation="1dp"
-                android:textColor="@color/colorBright"
+                android:textColor="@color/colorDarkDark"
                 android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/shopPreview"
-                app:srcCompat="@android:color/holo_blue_light"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:elevation="0dp"
-                android:foreground="@drawable/shop_image_foreground" />
+                android:foreground="@drawable/shop_image_foreground"
+                app:srcCompat="@android:color/holo_blue_light" />
 
         </RelativeLayout>
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/number_of_shops"
-                android:textColor="@color/colorBright" />
+                android:textColor="@color/colorDarkDark" />
 
             <TextView
                 android:id="@+id/numOfShops"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_toRightOf="@+id/numOfShopsText"
-                android:textColor="@color/colorBrightDark" />
+                android:textColor="@color/colorDark" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shop_type"
-                android:textColor="@color/colorBright" />
+                android:textColor="@color/colorDarkDark" />
 
             <TextView
                 android:id="@+id/shopType"
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_toRightOf="@+id/shopTypeText"
-                android:textColor="@color/colorBrightDark" />
+                android:textColor="@color/colorDark" />
         </RelativeLayout>
 
     </LinearLayout>

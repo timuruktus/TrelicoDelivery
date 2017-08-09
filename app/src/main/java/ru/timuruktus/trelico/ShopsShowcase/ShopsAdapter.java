@@ -8,9 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import ru.timuruktus.trelico.POJO.Shop;
 import ru.timuruktus.trelico.R;
@@ -21,13 +22,15 @@ public class ShopsAdapter extends BaseAdapter {
 
     private Context context;
     private LayoutInflater lInflater;
-    private ArrayList<Shop> shops;
+    private List<Shop> shops;
+    private ShopsFragment shopsFragment;
 
-    ShopsAdapter(Context context, ArrayList<Shop> shops) {
+    ShopsAdapter(Context context, List<Shop> shops, ShopsFragment shopsFragment) {
         this.context = context;
         this.shops = shops;
         lInflater = (LayoutInflater) this.context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.shopsFragment = shopsFragment;
     }
 
     @Override
@@ -51,18 +54,27 @@ public class ShopsAdapter extends BaseAdapter {
         if (view == null) {
             view = lInflater.inflate(R.layout.shop_closed, parent, false);
         }
+        final Shop shop = getShop(position);
 
-        Shop shop = getShop(position);
+        view.setOnClickListener(v -> shopsFragment.presenter.onShopClick(shop));
 
         ((TextView) view.findViewById(R.id.shopName)).setText(shop.getName());
-        ((TextView) view.findViewById(R.id.numOfShops)).setText(shop.getCoordinates().size());
+        ((TextView) view.findViewById(R.id.numOfShops)).setText(String.valueOf(shop.getCoordinates().size()));
         ((TextView) view.findViewById(R.id.shopType)).setText(shop.getType());
         ImageView shopPreview = (ImageView) view.findViewById(R.id.shopPreview);
-        Picasso.with(context).load(IMAGES_URL + shop.getImageUrl()).centerCrop().into(shopPreview);
+        Glide.with(shopsFragment)
+                .load(IMAGES_URL + shop.getImageUrl())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .into(shopPreview);
         return view;
     }
 
     private Shop getShop(int position) {
         return ((Shop) getItem(position));
+    }
+
+    public List<Shop> getAllShops(){
+        return shops;
     }
 }

@@ -11,6 +11,5 @@ public interface IFragmentChanger {
 //    void initFragmentChanger(IMainActivity mainActivity);
     FragmentChanger setFragment(Fragment fragment);
     FragmentChanger needAddToBackStack(boolean addToBackStack);
-    FragmentChanger putSomeInfo(Serializable info);
-    void changeFragment() throws FragmentChanger.FragmentDidNotSet;
+    void changeFragment();
 }

@@ -17,7 +17,7 @@ public interface BackendlessAPI {
     String IMAGES_URL = BASE_URL + "files/" + IMAGES_FOLDER + "/";
 
     @GET("data/Shop")
-    Observable<Shop> listShops();
+    Observable<List<Shop>> listShops();
 
 
 }
